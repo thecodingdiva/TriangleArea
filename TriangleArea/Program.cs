@@ -10,12 +10,14 @@ namespace TriangleArea
     {
         static void Main(string[] args)
         {
-            double a = 1;
-            double b = 2;
-            double c = 3;
+            double a = 5;
+            double b = 6;
+            double c = 7;
 
             double p = (a + b + c) / 2;
+            double Area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
 
+            Console.WriteLine(Area);
         }
     }
 }
