@@ -22,7 +22,7 @@ namespace TriangleArea
             double p = (a + b + c) / 2;
             double Area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
 
-            Console.WriteLine(Area);
+            Console.WriteLine("The area for the triangle is: " + Area);
         }
     }
 }
