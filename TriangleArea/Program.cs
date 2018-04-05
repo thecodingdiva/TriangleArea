@@ -10,19 +10,45 @@ namespace TriangleArea
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter side a: ");
-            double a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Calculate the Area of a Triangle: \n");
+            try
+            {
+                Console.WriteLine("Enter side a: ");
+                double a = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Enter side b: ");
-            double b = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter side b: ");
+                double b = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Enter side c: ");
-            double c = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter side c: ");
+                double c = Convert.ToDouble(Console.ReadLine());
 
-            double p = (a + b + c) / 2;
-            double Area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-
-            Console.WriteLine("The area for the triangle is: " + Area);
+                if (a == 0 || b == 0 || c == 0 )
+                {
+                    throw new FormatException("Number not in range.");
+                }
+                else
+                {
+                    double p = (a + b + c) / 2;
+                    double Area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+                    
+                    if(Area == 0)
+                    {
+                        throw new Exception("Not a Triangle");
+                    }
+                    else
+                    {
+                        Console.WriteLine("The area for the triangle is: " + Area);
+                    }
+                }
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine("Your input cannot be 0.");
+            }
+            catch (Exception e1)
+            {
+                Console.WriteLine("Your input will not be a triangle.");
+            }
         }
     }
 }
