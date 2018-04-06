@@ -39,7 +39,7 @@ namespace TriangleArea
                         else
                         {
                             double p = (a + b + c) / 2;
-                            double Area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+                            double Area = checked(Math.Sqrt(p * (p - a) * (p - b) * (p - c)));
 
                             if (Area == 0)
                             {
@@ -60,6 +60,10 @@ namespace TriangleArea
             catch (Exception e1)
             {
                 Console.WriteLine("Your input will not be a triangle.");
+            }
+            finally
+            {
+                Console.WriteLine("Your program has terminated");
             }
         }
     }
