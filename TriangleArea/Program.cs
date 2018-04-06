@@ -15,35 +15,47 @@ namespace TriangleArea
             {
                 Console.WriteLine("Enter side a: ");
                 double a = Convert.ToDouble(Console.ReadLine());
-
-                Console.WriteLine("Enter side b: ");
-                double b = Convert.ToDouble(Console.ReadLine());
-
-                Console.WriteLine("Enter side c: ");
-                double c = Convert.ToDouble(Console.ReadLine());
-
-                if (a == 0 || b == 0 || c == 0 )
+                if (a <= 0)
                 {
                     throw new FormatException("Number not in range.");
                 }
                 else
                 {
-                    double p = (a + b + c) / 2;
-                    double Area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-                    
-                    if(Area == 0)
+                    Console.WriteLine("Enter side b: ");
+                    double b = Convert.ToDouble(Console.ReadLine());
+                    if (b <= 0)
                     {
-                        throw new Exception("Not a Triangle");
+                        throw new FormatException("Number not in range.");
                     }
                     else
                     {
-                        Console.WriteLine("The area for the triangle is: " + Area);
+                        Console.WriteLine("Enter side c: ");
+                        double c = Convert.ToDouble(Console.ReadLine());
+
+                        if (a <= 0 || b <= 0 || c <= 0)
+                        {
+                            throw new FormatException("Number not in range.");
+                        }
+                        else
+                        {
+                            double p = (a + b + c) / 2;
+                            double Area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+
+                            if (Area == 0)
+                            {
+                                throw new Exception("Not a Triangle");
+                            }
+                            else
+                            {
+                                Console.WriteLine("The area for the triangle is: " + Area);
+                            }
+                        }
                     }
                 }
             }
             catch(FormatException e)
             {
-                Console.WriteLine("Your input cannot be 0.");
+                Console.WriteLine("Your input is invalid.");
             }
             catch (Exception e1)
             {
